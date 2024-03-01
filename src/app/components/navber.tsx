@@ -10,7 +10,7 @@ export default function Navbar() {
 
 	useEffect(() => {
 		// Function to handle outside click
-		const handleOutsideClick = (event) => {
+		const handleOutsideClick = (event: any) => {
 			// Check if the click is outside the menu
 			if (isOpen && !event.target.closest('.menu-container')) {
 				closeMenu();
