@@ -4,17 +4,17 @@ import Image from 'next/image';
 const Post2 = () => {
 	
   return (
-	<a className="group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/post2_detail">
+	<a className="group " href="/post2_detail">
           <div className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
             <img className="size-full absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="pos/IMG_7686.jpg" alt="Image Description">
             </img>
           </div>
 
           <div className="mt-7">
-            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-gray-200">
+            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 ">
               Low Brass Centerで試奏してきました
           </h3>
-            <p className="mt-3 text-gray-800 dark:text-gray-200">
+            <p className="mt-3 text-gray-800 ">
               ローブラスセンターにて、K&HのT2Gを試奏しました。すごく良い楽器でこれは欲しい。
             </p>
             <p className="mt-5 inline-flex items-center gap-x-1 text-blue-600 decoration-2 group-hover:underline font-medium">
