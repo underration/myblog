@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Navbar from '../components/navber';
-import Image from 'next/image';
+
 const post = () => {
 	return (
 		<div className="max-w-3xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
@@ -21,8 +21,8 @@ const post = () => {
 					
 
 					<figure>
-						<Image className="w-full object-cover rounded-xl" src="/pos/IMG_7548.jpg" alt="試奏したShiresのQ30GR">
-						</Image>
+						<img className="w-full object-cover rounded-xl" src="/pos/IMG_7548.jpg" alt="試奏したShiresのQ30GR">
+						</img>
 						<figcaption className="mt-3 text-sm text-center text-gray-500">
 						試奏したShiresのQ30GR
 						</figcaption>
@@ -32,8 +32,8 @@ const post = () => {
 					価格はDACケース込みで31万円、これは非常に買いな価格で大満足、楽器本体も非常にきれいでした。スライドも全然問題なく非常に満足しました。
 					</p>
 					<figure>
-						<Image className="w-full object-cover rounded-xl" src="pos/IMG_7781.jpg" alt="T3Y">
-						</Image>
+						<img className="w-full object-cover rounded-xl" src="pos/IMG_7781.jpg" alt="T3Y">
+						</img>
 						<figcaption className="mt-3 text-sm text-center text-gray-500">
 						T3Y、とてもきれい
 						</figcaption>

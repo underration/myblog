@@ -6,8 +6,8 @@ const Post2 = () => {
   return (
 	<a className="group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/post2_detail">
           <div className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
-            <Image className="size-full absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="pos/IMG_7686.jpg" alt="Image Description">
-            </Image>
+            <img className="size-full absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="pos/IMG_7686.jpg" alt="Image Description">
+            </img>
           </div>
 
           <div className="mt-7">
