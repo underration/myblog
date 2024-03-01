@@ -17,9 +17,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      
-      
-      
       <body class="flex flex-col min-h-screen">
         <main class="flex-grow">
           <Navbar />
