@@ -9,7 +9,9 @@ const post = () => {
 				<div className="space-y-5 md:space-y-8">
 					<div className="space-y-3">
 						<h2 className="text-2xl font-bold md:text-3xl ">My new 人権... I mean, instrument</h2>
-
+						<div className="flex items-center gap-x-5">
+            <p className="text-xs sm:text-sm text-gray-800">2024/03/05</p>
+          </div>
 						<p className="text-lg text-gray-800 ">
 							新しくT3Yを買いました。もともと楽器ほしいと悩んでいたものの、近年の円安ならびに人件費の高騰を受けて、楽器の値段はもう目を当てられないほどでした。バイト戦士であるけどお金全然足りなくて、
 							新品買うのはあきらめました。もともとConn 88h吹いてたから、暗い音の楽器より明るい音色の楽器を探そうとしました。
