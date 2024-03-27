@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/navber';
 import Footer from './components/footer';
-const inter = Inter({ subsets: ["latin"] });
-
+import GoogleAnalytics from './components/GoogleAnalytics';
 export const metadata: Metadata = {
   title: "Posaune Blog",
   description: "トロンボーン吹きのブログ、ぼちぼち更新します。",
@@ -17,14 +17,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <Suspense fallback={<></>}>
+        <GoogleAnalytics />
+      </Suspense>
       <body className="flex flex-col min-h-screen">
         <main className="flex-grow">
           <Navbar />
           {children}
         </main>
-        <Footer/>
-        </body>
-        
+        <Footer />
+      </body>
+
     </html>
   );
 }
