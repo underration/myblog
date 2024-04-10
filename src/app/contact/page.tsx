@@ -11,7 +11,7 @@ const Contact = () => {
 			</div>
 		</div>
 		
-		<div className=" gap-6 px-10">
+		<div className=" gap-6 px-6">
     <div className="flex flex-col rounded-xl p-4 md:p-6 bg-white border border-gray-200 ">
       <div className="flex items-center gap-x-4">
         <img className="rounded-full size-20" src="/pos/lGxw2sIP_400x400.jpg" alt="roru_roru"></img>
