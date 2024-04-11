@@ -1,30 +1,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://posauneblog.vercel.app/</loc>
+    <loc>https://www.roru.dev/</loc>
     <lastmod>2024-04-06T15:02:24.021Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://posauneblog.vercel.app/about</loc>
+    <loc>https://www.roru.dev/about</loc>
     <lastmod>2024-04-06T15:02:24.021Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://posauneblog.vercel.app/contact</loc>
+    <loc>https://www.roru.dev/contact</loc>
     <lastmod>2024-04-06T15:02:24.021Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://posauneblog.vercel.app/post_detail</loc>
+    <loc>https://www.roru.dev/post_detail</loc>
     <lastmod>2024-04-06T15:02:24.021Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://posauneblog.vercel.app/post2_detail</loc>
+    <loc>https://www.roru.dev/post2_detail</loc>
     <lastmod>2024-04-06T15:02:24.021Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
