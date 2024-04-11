@@ -7,7 +7,7 @@ const about = () => {
 				<div className="space-y-5 md:space-y-8">
 					<div className="space-y-3 text-center">
 						<h2 className="text-2xl font-bold md:text-3xl">About</h2>
-						<img className="h-2/3 object-cover rounded-xl" src="/pos/IMG_7875.jpg" alt="試奏したShiresのQ30GR">
+						<img className="x-full object-cover rounded-xl" src="/pos/IMG_7875.jpg" alt="試奏したShiresのQ30GR">
 						</img>
 						<p className="text-lg text-gray-800">
 							楽器歴：７年
