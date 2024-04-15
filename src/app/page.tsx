@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Post from './components/post';
 import Post2 from './components/post2';
+import Post3 from './components/post3';
 const Blog = () => {
   return (
 
@@ -13,6 +14,7 @@ const Blog = () => {
       {/* Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Card */}
+        <Post3/>
         <Post/>
         {/* Card */}
         <Post2/>
