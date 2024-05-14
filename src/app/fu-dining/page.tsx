@@ -88,7 +88,7 @@ const Page = () => {
     }
 
     setSelectedItems(selected);
-    
+
   };
 
   return (
@@ -98,7 +98,7 @@ const Page = () => {
         <input
           type="number"
           placeholder="上限価格を入力"
-          
+
           value={maxPrice || ''}
           onChange={handlePriceInput}
           className="border-2 border-gray-200 rounded p-2 mr-2 "
@@ -140,8 +140,9 @@ const Page = () => {
           <h2 className="text-xl font-semibold mb-2">選ばれたメニュー</h2>
           <ul className="list-none">
             {selectedItems.map((item) => (
-              <div className="block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 m-8">
-                <li key={item.id} className="mb-2">
+              // keyプロップを最外層のdivに追加
+              <div key={item.id} className="block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 m-8">
+                <li className="mb-2">
                   <img src={item.imageUrl} alt={item.name} width="auto" className="mt-2 mx-auto" />
                   <p className="text-lg font-medium">
                     {item.name} <div className="text-gray-600">({item.price}円)</div>
@@ -154,14 +155,14 @@ const Page = () => {
         </div>
       )}
       <div className="my-8">
-      <a
-        href={createTweetContent(selectedItems, pageUrl)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-gray-700 hover:bg-gray-500 transition text-white font-bold py-2 px-4 rounded "
-      >
-        結果をツイートする
-      </a>
+        <a
+          href={createTweetContent(selectedItems, pageUrl)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-gray-700 hover:bg-gray-500 transition text-white font-bold py-2 px-4 rounded "
+        >
+          結果をツイートする
+        </a>
       </div>
     </div>
   );
