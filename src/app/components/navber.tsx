@@ -40,6 +40,7 @@ export default function Navbar() {
 					</div>
 					{/* Menu items for large screens */}
 					<div className="hidden md:flex items-center space-x-1">
+						<a href="/fu-dining" className="py-5 px-3 hover:opacity-40 transition "><div className="bg-blue-500 text-white rounded p-2">Fu-ダイニングガチャ</div></a>
 						<a href="/" className="py-5 px-3 hover:opacity-40 transition">Home</a>
 						<a href="/about" className="py-5 px-3 hover:opacity-40 transition">About</a>
 						<a href="/contact" className="py-5 px-3 hover:opacity-40 transition">Contact</a>
@@ -61,6 +62,7 @@ export default function Navbar() {
 				<div className={`absolute inset-0 bg-black opacity-50 ${isOpen ? "block" : "hidden"}`} onClick={closeMenu}></div>
 				{/* Menu */}
 				<div className="relative bg-white w-64 min-h-full shadow-xl py-3">
+					<a href="/fu-dining" className=" block py-2 px-4 text-sm  "><div className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 transition duration-300">Fu-ダイニングガチャ</div></a>
 					<a href="/" className="block py-2 px-4 text-sm hover:bg-gray-100 hover:opacity-40 transition">Home</a>
 					<a href="/about" className="block py-2 px-4 text-sm hover:bg-gray-100 hover:opacity-40 transition">About</a>
 					<a href="/contact" className="block py-2 px-4 text-sm hover:bg-gray-100 hover:opacity-40 transition">Contact</a>
