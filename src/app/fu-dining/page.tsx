@@ -2,15 +2,31 @@
 // app/menu.page.tsx
 import React, { useEffect, useState } from 'react';
 
-type MenuItem = {
-  id: string;
-  price: number;
-  name: string;
-  imageUrl: string;
-};
+type foodItem = {
+    id : string;
+    Name: string;
+    en: string;
+    price: number;
+    imgURL: string;
+    Detail: string;
+    Pathphp: string;
+    Energy: string;
+    Protein: string;
+    Fat: string;
+    Carbohydrates: string;
+    Salt: string;
+    Calcium: string;
+    Veg: string;
+    Iron: string;
+    VitaminA: string;
+    VitaminB1: string;
+    VitaminB2: string;
+    VitaminC: string;
+    PlaceOfOrigin: string;
+}
 
-const createTweetContent = (selectedItems: MenuItem[], url: string): string => {
-  const menuText = selectedItems.map(item => `${item.name} (${item.price}円)`).join(', ');
+const createTweetContent = (selectedItems: foodItem[], url: string): string => {
+  const menuText = selectedItems.map(item => `${item.Name} (${item.price}円)`).join(', ');
   const totalPrice = selectedItems.reduce((total, item) => total + item.price, 0);
   const tweetText = `私が選んだメニュー: ${menuText}。合計: ${totalPrice}円 ${url}`;
   const encodedTweetText = encodeURIComponent(tweetText);
@@ -18,35 +34,32 @@ const createTweetContent = (selectedItems: MenuItem[], url: string): string => {
 }
 
 const Page = () => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [foodItems, setfoodItems] = useState<foodItem[]>([]);
   const [maxPrice, setMaxPrice] = useState<number>(500);
-  const [selectedItems, setSelectedItems] = useState<MenuItem[]>([]);
+  const [selectedItems, setSelectedItems] = useState<foodItem[]>([]);
   const [requiredItems, setRequiredItems] = useState<string[]>([]); // 必須商品のIDを追跡するステート
   const [showRequiredItems, setShowRequiredItems] = useState(false); // 必須メニューの表示状態
   const pageUrl = "roru.dev/fu-dining";
-
+  
+  async function fetchfoodItems() {
+    try{
+      const res = await fetch("https://api.sssapi.app/g8UtfvezpMp9yhgI5OSjj");
+      const data = await res.json();
+      const items: foodItem[] = data.map((item: foodItem) => {
+        if(item.id){
+          
+         　return {id:item.id, Name:item.Name, en:item.en, price:Number(item.price), imgURL:item.imgURL};
+        }
+      });
+      setfoodItems(items);
+    } catch (error) {
+      alert('メニューデータの取得に失敗しました');
+    }
+  }
   useEffect(() => {
-    // メニューデータをフェッチする関数
-    const fetchMenuItems = async () => {
-      try {
-        // ファイルからデータをフェッチ
-        const response = await fetch('/menu.txt');
-        const data = await response.text();
-        // ファイルを行ごとに分割し、各行をタブで分割してオブジェクトに変換
-        const items: MenuItem[] = data.trim().split('\n').map((line) => {
-          const [id, price, name, imageUrl] = line.split('\t');
-          return { id, price: parseInt(price, 10), name, imageUrl: imageUrl.trim() };
-        });
-        // ステートにセット
-        setMenuItems(items);
-      } catch (error) {
-        console.error('メニューデータの取得に失敗しました', error);
-      }
-    };
-
-    // データをフェッチする
-    fetchMenuItems();
-  }, []);
+    fetchfoodItems();
+  }
+  , []);
 
   const handlePriceInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMaxPrice(parseInt(event.target.value, 10));
@@ -63,16 +76,16 @@ const Page = () => {
     });
   };
 
-  let tweetLink = ''; // Declare the tweetLink variable here
+  
 
   const handleSelectItems = () => {
     let currentTotal = requiredItems.reduce((total, itemId) => {
-      const item = menuItems.find(item => item.id === itemId);
+      const item = foodItems.find(item => item.id === itemId);
       return item ? total + item.price : total;
     }, 0);
 
-    const selected = menuItems.filter(item => requiredItems.includes(item.id));
-    const availableItems = menuItems.filter(item => !requiredItems.includes(item.id) && item.price <= maxPrice);
+    const selected = foodItems.filter(item => requiredItems.includes(item.id));
+    const availableItems = foodItems.filter(item => !requiredItems.includes(item.id) && item.price <= maxPrice);
 
     while (currentTotal < maxPrice && availableItems.length > 0) {
       const randomIndex = Math.floor(Math.random() * availableItems.length);
@@ -95,6 +108,7 @@ const Page = () => {
     <div className="container mx-auto p-4 justify-center text-center ">
       <h1 className="text-2xl font-bold mb-4 ">fu・dining ガチャ</h1>
       <div className="mb-4">
+       
         <input
           type="number"
           placeholder="上限価格を入力"
@@ -118,7 +132,7 @@ const Page = () => {
           <div>
             <h2 className="text-xl font-semibold mb-2 ">必須商品を選択</h2>
             <ul className="list-disc pl-5 ">
-              {menuItems.map((item) => (
+              {foodItems.map((item) => (
                 <li key={item.id} className="mb-2 list-none flex">
                   <label className="flex items-center">
                     <input
@@ -127,7 +141,7 @@ const Page = () => {
                       onChange={(e) => handleRequiredItemChange(item.id, e.target.checked)}
                       className="mr-2"
                     />
-                    {item.name} <span className="text-gray-600">({item.price}円)</span>
+                    {item.Name} <span className="text-gray-600">({item.price}円)</span>
                   </label>
                 </li>
               ))}
@@ -143,9 +157,9 @@ const Page = () => {
               // keyプロップを最外層のdivに追加
               <div key={item.id} className="block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 m-8">
                 <li className="mb-2">
-                  <img src={item.imageUrl} alt={item.name} width="auto" className="mt-2 mx-auto" />
+                  <img src={item.imgURL} alt={item.Name} width="auto" className="mt-2 mx-auto" />
                   <p className="text-lg font-medium">
-                    {item.name} <div className="text-gray-600">({item.price}円)</div>
+                    {item.Name} <div className="text-gray-600">({item.price}円) </div>
                   </p>
                 </li>
               </div>

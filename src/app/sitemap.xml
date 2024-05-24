@@ -29,4 +29,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.roru.dev/post3_detail</loc>
+    <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.roru.dev/post4_detail</loc>
+    <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.roru.dev/fu-dining</loc>
+    <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
