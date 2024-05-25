@@ -10,7 +10,7 @@ type foodItem = {
   imgURL: string;
   Detail: string;
   Pathphp: string;
-  Energy: string;
+  cal: string;
   Protein: string;
   Fat: string;
   Carbohydrates: string;
@@ -50,7 +50,7 @@ const Page = () => {
       const items: foodItem[] = data.map((item: foodItem) => {
         if (item.id) {
 
-          return { id: item.id, Name: item.Name, en: item.en, price: Number(item.price), imgURL: item.imgURL, Detail: item.Detail, Pathphp: item.Pathphp, Energy: item.Energy, Protein: item.Protein, Fat: item.Fat, Carbohydrates: item.Carbohydrates, Salt: item.Salt, Calcium: item.Calcium, Veg: item.Veg, Iron: item.Iron, VitaminA: item.VitaminA, VitaminB1: item.VitaminB1, VitaminB2: item.VitaminB2, VitaminC: item.VitaminC, PlaceOfOrigin: item.PlaceOfOrigin };
+          return { id: item.id, Name: item.Name, en: item.en, price: Number(item.price), imgURL: item.imgURL, Detail: item.Detail, Pathphp: item.Pathphp, cal: item.cal, Protein: item.Protein, Fat: item.Fat, Carbohydrates: item.Carbohydrates, Salt: item.Salt, Calcium: item.Calcium, Veg: item.Veg, Iron: item.Iron, VitaminA: item.VitaminA, VitaminB1: item.VitaminB1, VitaminB2: item.VitaminB2, VitaminC: item.VitaminC, PlaceOfOrigin: item.PlaceOfOrigin };
         }
       });
       setfoodItems(items);
@@ -181,7 +181,7 @@ const Page = () => {
                       <div className="relative text-center ">
                        
                         <ul className="text-sm text-gray-800 ">
-                          <li>エネルギー: {item.Energy}</li>
+                          <li>エネルギー: {item.cal}</li>
                           <li>たんぱく質: {item.Protein}</li>
                           <li>脂質: {item.Fat}</li>
                           <li>炭水化物: {item.Carbohydrates}</li>
