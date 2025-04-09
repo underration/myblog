@@ -121,14 +121,14 @@ const ProjectPage = () => {
             概要
           </h2>
           <p className="text-[var(--color-text-secondary)] mb-8 leading-relaxed text-lg">
-            <div dangerouslySetInnerHTML={{ __html: project.description }} />
+            <span dangerouslySetInnerHTML={{ __html: project.description }} />
           </p>
 
           <h2 className="text-2xl font-bold mb-4 text-[var(--color-header)]">
             詳細
           </h2>
           <p className="text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-            {project.detail}
+            <span dangerouslySetInnerHTML={{ __html: project.detail }} />
           </p>
           <h2 className="text-2xl font-bold mb-4 text-[var(--color-header)]">
             ギャラリー

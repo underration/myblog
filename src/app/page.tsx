@@ -6,6 +6,8 @@ import Link from "next/link";
 import { projectsData } from "@/components/projectData";
 import Threads from "@/components/Threads";
 import Navbar from "@/components/navbar";
+import CircularGallery from "@/components/CircularGallery";
+import { gallery } from "@/components/gallery";
 // image mapping
 const skillImages: Record<string, string> = {
   "React & Next.js": "/next-js.webp",
@@ -20,6 +22,10 @@ const skillImages: Record<string, string> = {
 
 // ロードマップセクションのデータ
 const roadmapData = [
+  {
+    title: "2003年12月24日",
+    description: "大阪府和泉市で生まれる",
+  },
   {
     title: "2022年3月",
     description: "桃山学院高等学校卒業",
@@ -213,8 +219,27 @@ const Blog = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            大阪公立大学情報工学科に在学中のエンジニアです。フルスタック開発を得意としており、特にReactやNext.jsを使用したWebアプリケーションの開発に力を入れています。
+            <h2>所属</h2>
+            <p className="mt-2 text-[var(--color-text-secondary)]">
+              2025年現在、大阪公立大学情報工学科４回生、オーケストラ部に所属しています。
+            </p>
+            <h2 className="mt-6">趣味</h2>
+            <p className="mt-2 text-[var(--color-text-secondary)]">
+              部活動で、トロンボーンを演奏しています。トロンボーン歴は8年で、コンクールや演奏会に参加しています。また、個人でプログラミングでアプリを作成したりします。
+            </p>
+            <h2 className="mt-6">特技</h2>
+            <p className="mt-2 text-[var(--color-text-secondary)]">
+              トロンボーン、英語(高校二年生で英検準一級を取得)、プログラミング(フロントエンドとときどきバックエンド)です。
+            </p>
           </motion.p>
+        </div>
+        <div style={{ height: "600px", position: "relative" }}>
+          <CircularGallery
+            bend={10}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            items={gallery}
+          />
         </div>
       </motion.div>
 
@@ -264,11 +289,11 @@ const Blog = () => {
                   {item.title}
                 </h3>
                 <p className="mt-3 text-[var(--color-text-secondary)]">
-                  <div
+                  <span
                     dangerouslySetInnerHTML={{
                       __html: item.description,
                     }}
-                  ></div>
+                  ></span>
                 </p>
                 <motion.div
                   className="mt-4"
