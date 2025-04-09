@@ -15,12 +15,12 @@ export const projectsData = [
   },
 
   {
-    id: "3",
+    id: "2",
     title: "大阪公立大学交響楽団公式サイト",
     category: ["フロントエンド"],
     description: "大阪公立大学交響楽団の公式サイトを制作しました。",
     detail: `大阪公立大学交響楽団の公式サイトを制作しました。デザインはFigmaで作成し、Next.jsとTailwind CSSを使用して実装しました。また、保守性を考慮し、Headless CMSとしてNewtを使用しました。これによりSSGを活用したSEO対策も行いました。さらに、Vercelを利用してデプロイを行い、パフォーマンスの最適化にも取り組みました。
-    今までGoogle siteによる運用でしたが、、より自由度の高いデザインと機能を実現するために、Next.jsを使用して新たにサイトを構築しました。これにより、団員が簡単に情報を更新できるようになり、より多くの人々に公立大学の交響楽団を知ってもらえることを目指しています。
+    今までGoogle siteによる運用でしたが、より自由度の高いデザインと機能を実現するために、Next.jsを使用して新たにサイトを構築しました。これにより、団員が簡単に情報を更新できるようになり、より多くの人々に公立大学の交響楽団を知ってもらえることを目指しています。
     `,
     period: "2025年2月 - 2025年3月",
     role: "フロントエンドエンジニア",
@@ -38,7 +38,7 @@ export const projectsData = [
     link: "https://orchestraproject.vercel.app/",
   },
   {
-    id: "4",
+    id: "3",
     title: "ビーコンセンシングによる滞在空間同定手法",
     category: ["研究"],
     description:
@@ -60,5 +60,37 @@ export const projectsData = [
     image: "/ble.png",
     images: ["/IMG_9379 2.JPG", "/IMG_9380 2.JPG", "/app.png"],
     link: "https://www.docswell.com/s/naoya_iwamoto/ZYD6LD-2025-04-09-150451",
+  },
+  {
+    id: "4",
+    title: "Michel Becquet's recordings 86",
+    category: ["フロントエンド"],
+    description: "知人より依頼を受けて制作したサイトです。",
+    detail: `Michel Becquet's という世界的トロンボーン奏者の録音をまとめたサイトです。知人より依頼を受けて制作しました。
+    デザインはFigmaで作成し、Next.jsとTailwind CSSを使用して実装しました。また、保守性を考慮し、Headless CMSとしてNewtを使用しました。これによりSSGを活用したSEO対策も行いました。また、cloudflareでのドメインの設定などのサポートを行いました。
+    `,
+    period: "2024年8月 - 2024年9月",
+    role: "フロントエンドエンジニア",
+    client: "知人",
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
+    image: "/michel/1.png",
+    images: ["/michel/2.png", "/michel/4.png", "/michel/3.png"],
+    link: "https://www.posauneee.net/",
+  },
+  {
+    id: "5",
+    title: "ImageToPDF",
+    category: ["Python"],
+    description: "画像をPDFに変換するPythonスクリプトです。",
+    detail: `
+    画像をPDFに変換するPythonスクリプトです。複数の画像を一つのPDFファイルにまとめることができます。fletを使用して、GUIで操作できるようにしました。痒い所に手が届くようなアプリケーションを目指しています。
+    `,
+    period: "2024年10月 - 2024年11月",
+    role: "Pythonエンジニア",
+    client: "自主制作",
+    technologies: ["Python", "flet"],
+    image: "/imageToPDF.png",
+    images: [""], 
+    link: "https://github.com/underration/ImageToPDF",
   },
 ];
