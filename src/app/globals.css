@@ -4,34 +4,32 @@
 
 /* Google Fonts の読み込み */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
 :root {
-	--color-bg-primary: #ffffff;
-	/* 背景白 */
-	--color-bg-primary-rgb: 255, 255, 255;
-	--color-bg-secondary: #f7f9fc;
-	/* 淡い青みがかったグレー */
-	--color-text-primary: #1e293b;
-	/* 濃紺に近いネイビーグレー */
-	--color-text-secondary: #64748b;
-	/* やや淡いグレーブルー */
-	--color-accent: #3b82f6;
-	/* Zennブルー */
-	--color-accent-hover: #2563eb;
-	/* 濃いブルー（hover） */
-	--color-border: #e2e8f0;
-	/* 明るめの境界線 */
-	--color-link: #3b82f6;
-	--color-link-hover: #2563eb;
-	--color-header: #0f172a;
-	/* ダークネイビー */
+	--color-bg-primary: #fefcfb;
+	/* ややクリームがかったホワイト */
+	--color-bg-primary-rgb: 254, 252, 251;
+	--color-bg-secondary: #f8f4f0;
+	/* ミルクティーのような淡いベージュ */
+	--color-text-primary: #4b3f39;
+	/* ほんのりブラウンがかったグレー */
+	--color-text-secondary: #7b6f66;
+	/* 落ち着いたグレー */
+	--color-accent: #f59e0b;
+	/* やわらかいオレンジ（琥珀色） */
+	--color-accent-hover: #d97706;
+	/* 少し深めのオレンジ */
+	--color-border: #e2dcd7;
+	/* ぬくもりのあるライトグレー */
+	--color-link: #f59e0b;
+	--color-link-hover: #d97706;
+	--color-header: #3f2e2e;
+	/* 柔らかなブラウン */
 	--color-shadow: rgba(0, 0, 0, 0.05);
-	--color-button: #3b82f6;
-	--color-button-hover: #2563eb;
-	--color-omu-silver: #94a3b8;
-	/* 補助として淡いブルーグレー */
+	--color-button: #f59e0b;
+	--color-button-hover: #d97706;
+	--color-omu-silver: #c8bfb6;
+	/* 淡いくすみ系シルバー */
 }
-
 .dark {
 	--color-bg-primary: #0f172a;
 	/* 背景ダークネイビー */
@@ -57,18 +55,36 @@
 	--color-button-hover: #2563eb;
 	--color-omu-silver: #94a3b8;
 }
-/* 基本スタイル */
-@layer base {
-	body {
-		background-color: var(--color-bg-primary);
-		color: var(--color-text-primary);
-		transition: background-color 0.3s ease, color 0.3s ease;
-	}
 
-	/* SVG フィルターを追加して、ダークモードでSVGを見やすく反転させる */
-	.dark img.dark\:invert {
-		filter: invert(1) brightness(1.5);
-	}
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+}
+
+body {
+	background-color: var(--color-bg-primary);
+	color: var(--color-text-primary);
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.snap-start {
+	scroll-snap-align: start;
+}
+
+.snap-center {
+	scroll-snap-align: center;
+}
+
+/* SVG フィルターを追加して、ダークモードでSVGを見やすく反転させる */
+.dark img.dark\:invert {
+	filter: invert(1) brightness(1.5);
+}
+
+/* セクション間のトランジション */
+section {
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 /* SNS共有ボタンスタイル */
@@ -267,6 +283,24 @@ button.Hatena:hover svg {
 	background: rgba(230, 199, 82, 0.25);
 }
 
+/* スクロールバーのカスタマイズ */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-accent);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-accent-hover);
+}
+
 /* ダークモード時のスクロールバーのスタイル */
 .dark ::-webkit-scrollbar {
 	width: 14px;
@@ -423,4 +457,83 @@ button.Hatena:hover svg {
 	color: var(--color-header);
 	margin-top: 1.25em;
 	margin-bottom: 0.5em;
+}
+
+/* 画像ギャラリーモーダル用アニメーション */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-zoomOut {
+  animation: zoomOut 0.5s ease-out forwards;
+}
+
+/* モーダルオーバーレイのフェードイン/アウト */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-modalFadeIn {
+  animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-modalFadeOut {
+  animation: modalFadeOut 0.3s ease-in forwards;
+}
+
+/* ギャラリー画像のホバーエフェクト */
+.gallery-image {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ギャラリーモーダルの閉じるボタンエフェクト */
+.modal-close-btn {
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: rotate(90deg);
 }

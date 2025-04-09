@@ -1,38 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-
-// プロジェクトデータのモックアップ
-const projectsData = [
-  {
-    id: "1",
-    title: "ポートフォリオサイト",
-    category: "Webデザイン",
-    description:
-      "自身のスキルやプロジェクトを紹介するためのポートフォリオサイトです。Framer Motionを使用したアニメーションや、Three.jsによる3D表現を実装しています。",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Framer Motion",
-      "Three.js",
-      "Tailwind CSS",
-    ],
-    image: "/adrien-olichon-RCAhiGJsUUE-unsplash.jpg",
-    images: [
-      "/adrien-olichon-RCAhiGJsUUE-unsplash.jpg",
-      "/adrien-olichon-RCAhiGJsUUE-unsplash.jpg",
-      "/adrien-olichon-RCAhiGJsUUE-unsplash.jpg",
-    ],
-  },
-];
+import { projectsData } from "@/components/projectData";
 
 const ProjectPage = () => {
   const { id } = useParams();
   const project = projectsData.find((p) => p.id === id);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // 画像モーダルを開く関数
+  const openModal = (image: string) => {
+    setSelectedImage(image);
+    document.body.style.overflow = "hidden"; // モーダル表示中はスクロールを無効化
+  };
+
+  // 画像モーダルを閉じる関数
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = "auto"; // モーダルを閉じたらスクロールを有効化
+  };
 
   if (!project) {
     return (
@@ -91,9 +81,15 @@ const ProjectPage = () => {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[var(--color-header)]">
           {project.title}
         </h1>
-        <div className="inline-block bg-[var(--color-accent)] text-white px-3 py-1 rounded-full text-sm font-medium">
-          {project.category}
-        </div>
+
+        {project.category.map((tech, index) => (
+          <span key={index} className="mr-2 last:mr-0">
+            <div className="inline-block bg-[var(--color-accent)] text-white px-3 py-1 rounded-full text-sm font-medium">
+              {" "}
+              {tech}
+            </div>
+          </span>
+        ))}
       </motion.header>
 
       {/* メイン画像 */}
@@ -125,30 +121,28 @@ const ProjectPage = () => {
             概要
           </h2>
           <p className="text-[var(--color-text-secondary)] mb-8 leading-relaxed text-lg">
-            {project.description}
+            <div dangerouslySetInnerHTML={{ __html: project.description }} />
           </p>
 
           <h2 className="text-2xl font-bold mb-4 text-[var(--color-header)]">
             詳細
           </h2>
           <p className="text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-            このプロジェクトでは、ユーザーエクスペリエンスを重視した設計を行いました。
-            モダンなデザインと直感的なインターフェースにより、ユーザーがストレスなく操作できるように実装しています。
-            また、パフォーマンスの最適化にも注力し、高速な読み込みと応答性の高い操作感を実現しています。
+            {project.detail}
           </p>
-
           <h2 className="text-2xl font-bold mb-4 text-[var(--color-header)]">
             ギャラリー
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-            {project.images.map((image, index) => (
+            {project.images?.map((image, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="overflow-hidden rounded-lg shadow-md"
+                className="overflow-hidden rounded-lg shadow-md cursor-pointer"
+                onClick={() => openModal(image)}
               >
                 <Image
                   src={image}
@@ -208,19 +202,32 @@ const ProjectPage = () => {
                 <h3 className="font-semibold text-[var(--color-text-secondary)]">
                   期間
                 </h3>
-                <p>2023年4月 - 2023年7月</p>
+                <p>{project.period}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-[var(--color-text-secondary)]">
                   役割
                 </h3>
-                <p>フロントエンド開発 / UI/UXデザイン</p>
+                <p>{project.role}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-[var(--color-text-secondary)]">
                   クライアント
                 </h3>
-                <p>自主制作プロジェクト</p>
+                <p>{project.client}</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-[var(--color-text-secondary)]">
+                  リンク
+                </h3>
+                <a
+                  href={project?.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
+                >
+                  {project?.link}
+                </a>
               </div>
             </div>
           </div>
@@ -240,6 +247,61 @@ const ProjectPage = () => {
           </span>
         </Link>
       </motion.div>
+
+      {/* 画像モーダル */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="relative max-w-4xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 bg-white bg-opacity-70 rounded-full p-2 text-gray-800 hover:bg-opacity-100 transition-all z-10"
+                aria-label="閉じる"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <motion.div
+                className="bg-white p-2 rounded-lg shadow-xl overflow-hidden"
+                layoutId={`image-${selectedImage}`}
+              >
+                <Image
+                  src={selectedImage}
+                  alt="拡大画像"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-contain max-h-[80vh]"
+                />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

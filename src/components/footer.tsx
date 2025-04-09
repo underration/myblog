@@ -2,9 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full h-16 p-16 bg-[var(--color-bg-primary)] mt-8">
+    <footer className="fixed bottom-0 left-0 w-full bg-[var(--color-bg-secondary)] py-4 px-4 border-t border-[var(--color-border)]">
       <div className="max-w-screen-xl mx-auto">
-        <hr className="my-4 border-[var(--color-border)]" />
         <span className="block text-sm text-[var(--color-text-secondary)] text-center">
           © 2024{" "}
           <a

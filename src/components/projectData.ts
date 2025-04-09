@@ -1,0 +1,52 @@
+export const projectsData = [
+  {
+    id: "1",
+    title: "ポートフォリオサイト",
+    category: ["フロントエンド"],
+    description: "過去に行ってきたことをまとめたポートフォリオです。",
+    detail: `このポートフォリオは、過去に取り組んできたプロジェクトや経験をまとめたものです。これまでの活動を通じて得たスキルや経験を自分自身で振り返り、今後の成長に繋げるために作成しました。`,
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "vercel"],
+    period: "2025年4月 - 現在",
+    role: "フロントエンドエンジニア",
+    client: "自主制作",
+    image: "/portfolio.png",
+    images: ["/roadmap.png", "/skils.png"],
+    link: "https://github.com/underration/myblog",
+  },
+  {
+    id: "2",
+    title: "大阪公立大学大学公式アプリ",
+    category: ["フロントエンド", "バックエンド"],
+    description: "大学の公式アプリの開発を行いました。",
+    detail: `株式会社Affectifyにて、エンジニアとして大学の公式アプリの開発を行いました。具体的には、バックエンドサーバーの開発に従事し、API設計やデータベース設計を行いました。また、フロントエンドの開発にも関与し、gRPCによるFlutterクライアント ~ Goサーバー間の接続の実装を担当しました。`,
+    technologies: ["Flutter", "Go", "gRPC", "Google Cloud Run", "Cloud SQL"],
+    period: "2024年6月 - 現在",
+    role: "バックエンドエンジニア",
+    client: "公立大学法人大阪",
+    image: "/GbnbuhLbkAAsSXY.jpg",
+  },
+  {
+    id: "3",
+    title: "大阪公立大学交響楽団公式サイト",
+    category: ["フロントエンド"],
+    description:
+      '大阪公立大学交響楽団の公式サイトを制作しました。<a href="https://orchestraproject.vercel.app/" target="_blank" className="text-[var(--color-accent)]">こちら</a>からご覧いただけます。',
+    detail: `大阪公立大学交響楽団の公式サイトを制作しました。デザインはFigmaで作成し、Next.jsとTailwind CSSを使用して実装しました。また、保守性を考慮し、Headless CMSとしてNewtを使用しました。これによりSSGを活用したSEO対策も行いました。さらに、Vercelを利用してデプロイを行い、パフォーマンスの最適化にも取り組みました。
+    今までGoogle siteによる運用でしたが、、より自由度の高いデザインと機能を実現するために、Next.jsを使用して新たにサイトを構築しました。これにより、団員が簡単に情報を更新できるようになり、より多くの人々に公立大学の交響楽団を知ってもらえることを目指しています。
+    `,
+    period: "2025年2月 - 2025年3月",
+    role: "フロントエンドエンジニア",
+    client: "大阪公立大学交響楽団",
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "FireStore",
+      "Vercel",
+      "Figma",
+    ],
+    image: "/omutop.png",
+    images: ["/omutop2.png", "/omuabout.png"],
+    link: "https://orchestraproject.vercel.app/",
+  },
+];
