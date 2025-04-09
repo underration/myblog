@@ -93,12 +93,12 @@ const Blog = () => {
       <Navbar />
       <motion.div
         id="home"
-        className="relative h-screen flex items-center justify-center bg-[var(--color-bg-primary)] overflow-hidden snap-start"
+        className="relative min-h-[100dvh] flex items-center justify-center bg-[var(--color-bg-primary)] snap-start"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute  inset-0">
+        <div className="absolute inset-0">
           <Threads
             particleColors={["#ffffff", "#ffffff"]}
             particleCount={2000}
@@ -123,7 +123,7 @@ const Blog = () => {
         />
 
         {/* 🔹 コンテンツ部分（上に重ねる） */}
-        <motion.div style={{ opacity, y }} className="text-center z-10">
+        <motion.div style={{ opacity, y }} className="text-center z-10 px-4">
           <motion.h1
             className="text-5xl md:text-7xl font-bold text-[var(--color-text-primary)] mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -157,7 +157,7 @@ const Blog = () => {
       {/*ロードマップセクション*/}
       <motion.div
         id="roadmap"
-        className="h-screen flex flex-col justify-center items-center py-16 snap-start bg-[var(--color-bg-primary)]"
+        className="min-h-[100dvh] flex flex-col justify-center items-center py-16 snap-start bg-[var(--color-bg-primary)]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -195,7 +195,7 @@ const Blog = () => {
       </motion.div>
       {/* About me セクション */}
       <motion.div
-        className="h-screen flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-secondary)]"
+        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-secondary)] overflow-y-auto"
         id="about"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -245,7 +245,7 @@ const Blog = () => {
 
       {/* プロジェクトセクション */}
       <motion.div
-        className="h-screen flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)]"
+        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)] overflow-y-auto"
         id="projects"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -330,7 +330,7 @@ const Blog = () => {
       {/* スキルセクション */}
       <motion.div
         id="skills"
-        className="h-screen flex flex-col justify-center py-16 snap-start bg-[var(--color-bg-secondary)]"
+        className="min-h-[100dvh] flex flex-col justify-center py-16 snap-start bg-[var(--color-bg-secondary)] overflow-y-auto"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -384,7 +384,7 @@ const Blog = () => {
 
       {/* コンタクトセクション */}
       <motion.div
-        className="h-screen flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)]"
+        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)] overflow-y-auto"
         id="contact"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
