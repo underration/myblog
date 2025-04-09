@@ -30,6 +30,22 @@
 	--color-omu-silver: #c8bfb6;
 	/* 淡いくすみ系シルバー */
 }
+
+/* SNSアイコン用のスタイル */
+.sns-link {
+	color: #4b3f39;
+}
+
+.sns-link:hover {
+	color: #f59e0b;
+}
+
+.sns-link svg {
+	fill: currentColor;
+	width: 24px;
+	height: 24px;
+}
+
 .dark {
 	--color-bg-primary: #0f172a;
 	/* 背景ダークネイビー */
@@ -327,7 +343,7 @@ button.Hatena:hover svg {
 
 .recruit-content.prose h1,
 .recruit-content.prose h2,
-.recruit-content.prose h3 {
+	recruit-content.prose h3 {
 	color: var(--color-header);
 	margin-left: auto;
 	margin-right: auto;

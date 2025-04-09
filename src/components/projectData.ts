@@ -13,18 +13,7 @@ export const projectsData = [
     images: ["/roadmap.png", "/skils.png"],
     link: "https://github.com/underration/myblog",
   },
-  {
-    id: "2",
-    title: "大学公式アプリ",
-    category: ["フロントエンド", "バックエンド"],
-    description: "大学の公式アプリの開発を行いました。",
-    detail: `株式会社Affectifyにて、エンジニアとして大学の公式アプリの開発を行いました。具体的には、バックエンドサーバーの開発に従事し、API設計やデータベース設計を行いました。また、フロントエンドの開発にも関与し、gRPCによるFlutterクライアント ~ Goサーバー間の接続の実装を担当しました。`,
-    technologies: ["Flutter", "Go", "gRPC", "Google Cloud Run", "Cloud SQL"],
-    period: "2024年6月 - 現在",
-    role: "バックエンドエンジニア",
-    client: "公立大学法人大阪",
-    image: "/GbnbuhLbkAAsSXY.jpg",
-  },
+
   {
     id: "3",
     title: "大阪公立大学交響楽団公式サイト",
