@@ -9,6 +9,7 @@ import { projectsData } from "@/components/projectData";
 
 const ProjectPage = () => {
   const { id } = useParams();
+  const projectId = id as string; // 型アサーションを使用してidをstringに変換
   const project = projectsData.find((p) => p.id === id);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
