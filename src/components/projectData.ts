@@ -90,7 +90,7 @@ export const projectsData = [
     client: "自主制作",
     technologies: ["Python", "flet"],
     image: "/imageToPDF.png",
-    images: [""], 
+
     link: "https://github.com/underration/ImageToPDF",
   },
 ];
