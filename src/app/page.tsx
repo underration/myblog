@@ -190,7 +190,7 @@ const Blog = () => {
               </svg>
             </Link>
             <Link
-              href="https://www.linkedin.com/in/naoya-iwamoto-8b0a1b1b5/"
+              href="https://www.linkedin.com/in/naoya-iwamoto-3415a8315?"
               target="_blank"
               rel="noopener noreferrer"
               className="mx-2 text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
