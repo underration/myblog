@@ -61,12 +61,14 @@ html {
 	height: 100%;
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
+	overflow-x: hidden; /* 横スクロールを非表示に */
 }
 
 body {
 	background-color: var(--color-bg-primary);
 	color: var(--color-text-primary);
 	transition: background-color 0.3s ease, color 0.3s ease;
+	overflow-x: hidden; /* 横スクロールを非表示に */
 }
 
 .snap-start {
@@ -285,20 +287,21 @@ button.Hatena:hover svg {
 
 /* スクロールバーのカスタマイズ */
 ::-webkit-scrollbar {
-	width: 6px;
+	width: 8px; /* 縦スクロールバーの幅 */
+	height: 0; /* 横スクロールバーの高さを0にして非表示に */
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--color-bg-secondary);
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--color-accent);
-	border-radius: 3px;
+	background: rgba(100, 100, 100, 0.5);
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--color-accent-hover);
+	background: rgba(100, 100, 100, 0.7);
 }
 
 /* ダークモード時のスクロールバーのスタイル */
@@ -536,4 +539,20 @@ button.Hatena:hover svg {
 .modal-close-btn:hover {
   background-color: rgba(255, 255, 255, 0.95);
   transform: rotate(90deg);
+}
+
+/* モバイル向け設定 */
+@media (max-width: 768px) {
+  html, body {
+    scroll-snap-type: none; /* モバイルではスナップスクロールを無効化 */
+    height: auto;
+    overflow: auto;
+  }
+  
+  /* カードコンテンツを確実に表示 */
+  .grid {
+    display: grid;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }

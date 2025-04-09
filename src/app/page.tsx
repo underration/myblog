@@ -172,7 +172,7 @@ const Blog = () => {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto mb-16 overflow-y-auto max-h-[60vh]">
+        <div className="max-w-2xl mx-auto mb-16">
           {roadmapData.map((item, index) => (
             <motion.div
               key={index}
@@ -235,7 +235,7 @@ const Blog = () => {
         </div>
         <div style={{ height: "600px", position: "relative" }}>
           <CircularGallery
-            bend={10}
+            bend={3}
             textColor="#ffffff"
             borderRadius={0.05}
             items={gallery}
@@ -245,7 +245,7 @@ const Blog = () => {
 
       {/* プロジェクトセクション */}
       <motion.div
-        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)] overflow-y-auto"
+        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)]"
         id="projects"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -262,7 +262,7 @@ const Blog = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[85rem] px-4 mx-auto overflow-y-auto max-h-[60vh]">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[85rem] px-4 mx-auto">
           {/* Card */}
           {projectsData.map((item, index) => (
             <motion.div
@@ -384,7 +384,7 @@ const Blog = () => {
 
       {/* コンタクトセクション */}
       <motion.div
-        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)] overflow-y-auto"
+        className="min-h-[100dvh] flex flex-col justify-center py-10 snap-start bg-[var(--color-bg-primary)]"
         id="contact"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
