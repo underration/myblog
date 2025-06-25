@@ -7,7 +7,7 @@ import { projectsData } from "@/components/projectData";
 import Threads from "@/components/Threads";
 import Navbar from "@/components/navbar";
 import CircularGallery from "@/components/CircularGallery";
-import { gallery } from "@/components/gallery";
+
 // image mapping
 const skillImages: Record<string, string> = {
   "React & Next.js": "/next-js.webp",
@@ -316,15 +316,6 @@ const Blog = () => {
               トロンボーン、英語(高校二年生で英検準一級を取得)、プログラミング(フロントエンドとときどきバックエンド)です。
             </p>
           </motion.div>
-        </div>
-
-        <div style={{ height: "600px", position: "relative" }}>
-          <CircularGallery
-            bend={1}
-            textColor="#ffffff"
-            borderRadius={0.05}
-            items={gallery}
-          />
         </div>
       </motion.div>
 
