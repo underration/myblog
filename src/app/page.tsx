@@ -24,7 +24,7 @@ const skillImages: Record<string, string> = {
 const roadmapData = [
   {
     title: "2003年12月24日",
-    description: "大阪府和泉市で生まれる",
+    description: "大阪府で生まれる",
   },
   {
     title: "2022年3月",
@@ -32,22 +32,16 @@ const roadmapData = [
   },
   {
     title: "2022年4月",
-    description:
-      "大阪公立大学情報工学科入学、同時にオーケストラ部で音楽活動に従事",
+    description: "大阪公立大学情報工学科入学、オーケストラ部に所属",
   },
   {
     title: "2022年10月",
-    description: "地元のイオンでアルバイト開始、携帯販売業務や接客を経験",
+    description: "地元のイオンでアルバイト",
   },
   {
     title: "2024年6月",
     description:
       "株式会社Affectifyでエンジニアとして入社、フルスタック開発に従事",
-  },
-  {
-    title: "2025年3月",
-    description:
-      "友人が立ち上げた松尾研発スタートアップ®︎、株式会社KLDainamixでエンジニアとして従事",
   },
 ];
 
